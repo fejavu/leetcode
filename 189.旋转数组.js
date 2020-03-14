@@ -28,6 +28,7 @@ var rotateSolu_one = function(nums, k) {
   for(let i=0;i<len;i++) {
     nums[(i+k)%len] = numsCopy[i];
   }
+  
   return nums;
 }
 
