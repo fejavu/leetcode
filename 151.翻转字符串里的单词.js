@@ -40,22 +40,15 @@ let reverseWordsSolu_two = function(s) {
 
 let reverseWordsSolu_three = function(s) {
   let res = '';
-  let tempArr = s.split(' ').reverse();
+  let tempArr = s.trim().split(/[ ]+/g).reverse();
 
-  tempArr = tempArr.filter(item => {
-    if(item) {
-      return item;
-    }
-  });
-
-  tempArr.forEach((element, index) => {
-    if(index !== tempArr.length-1) {
-      res = res + element+' ';
+  tempArr.forEach((element) => {
+    if(res.length == 0) {
+      res = element;
     } else {
-      res = res + element;
+      res = res + ' '+ element
     }
   });
-
   return res;
 }
 
