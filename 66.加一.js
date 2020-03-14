@@ -10,7 +10,10 @@
  * @return {number[]}
  */
 var plusOne = function(digits) {
-  return plusOneSolu_one(digits);
+  if(digits === null || digits.length<1) return [1];
+
+  // return plusOneSolu_one(digits);
+  return plusOneSolu_two(digits);
 };
 
 var plusOneSolu_one = function(digits) {
@@ -25,5 +28,19 @@ var plusOneSolu_one = function(digits) {
   return digits;
 }
 
+var plusOneSolu_two = function(digits) {
+  let len = digits.length;
+  for(let i=len-1;i>=0;i--) {
+    if(digits[i] == 9) {
+      digits[i] = 0;
+    } else {
+      digits[i]++;
+      return digits;
+    }
+  }
+  digits[0] = 1;
+  digits.push(0);
+  return digits;
+}
 // @lc code=end
 
