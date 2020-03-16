@@ -10,6 +10,11 @@
  * @return {boolean}
  */
 var isValid = function(s) {
+  // return isValidSolu_one(s);
+  return isValidSolu_two(s);
+};
+
+let isValidSolu_one = function(s) {
   let stack = [];
 
   for(let i=0; i<s.length; i++) {
@@ -30,8 +35,29 @@ var isValid = function(s) {
   }
 
   return stack.length === 0;
-};
+}
 
+let isValidSolu_two = function(s) {
+  let resStack = [];
+  let dictObj = {
+    '(': ')',
+    '[': ']',
+    '{': '}'
+  }
+
+  for (let index = 0; index < s.length; index++) {
+    let element = s[index];
+    
+    if(dictObj[element]) {
+      resStack.push(dictObj[element]);
+    } else {
+      if(!resStack || element !== resStack.pop()) {
+        return false;
+      }
+    }
+  }
+
+  return resStack.length === 0;
+}
 
 // @lc code=end
-
