@@ -48,7 +48,6 @@ var fibSolu_two = function(N) {
  * solution three:array to cache fib[n]
  */
 var fibSolu_three = function(N) {
-  let fibRes;
   let fibArr = [0,1];
 
   for(var i=2; i<=N; i++) {

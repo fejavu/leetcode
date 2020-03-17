@@ -18,18 +18,18 @@ var maxArea = function(height) {
  * 
  * solution one: bruce force
  */
-// var maxAreaSolu_one = function(height) {
-//   let max = 0;
-//   let len = height.length;
+var maxAreaSolu_one = function(height) {
+  let max = 0;
+  let len = height.length;
 
-//   for(let i=0;i<len-1;i++) {
-//     for(let j=i+1;j<len;j++) {
-//       let area = (j-i) * (Math.min(height[i], height[j]));
-//       max = Math.max(area, max);
-//     }
-//   }
-//   return max;
-// };
+  for(let i=0;i<len-1;i++) {
+    for(let j=i+1;j<len;j++) {
+      let area = (j-i) * (Math.min(height[i], height[j]));
+      max = Math.max(area, max);
+    }
+  }
+  return max;
+};
 
 /**
  * solution two: double poiter from left and right;
