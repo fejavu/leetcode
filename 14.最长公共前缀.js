@@ -17,7 +17,8 @@ var longestCommonPrefix = function(strs) {
 let longestCommonPrefixSolu_one = function(strs) {
   let commonPre = '';
 
-  if(strs.length < 1) return commonPre;
+  if(strs === null || strs.length === 0) return '';
+  if(strs.length === 1) return strs[0];
 
   for(let i=0; i<strs[0].length; i++) {
     for(let j=0;j<strs.length;j++) {
@@ -32,7 +33,8 @@ let longestCommonPrefixSolu_one = function(strs) {
 }
 
 let longestCommonPrefixSolu_two = function(strs) {
-  if(strs.length < 1) return '';
+  if(strs === null || strs.length === 0) return '';
+  if(strs.length === 1) return strs[0];
 
   let commonPre = strs[0];
 
@@ -44,6 +46,7 @@ let longestCommonPrefixSolu_two = function(strs) {
 
   return commonPre;
 }
+
 
 // @lc code=end
 
