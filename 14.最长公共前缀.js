@@ -11,7 +11,8 @@
  */
 var longestCommonPrefix = function(strs) {
   // return longestCommonPrefixSolu_one(strs);
-  return longestCommonPrefixSolu_two(strs);
+  // return longestCommonPrefixSolu_two(strs);
+  return longestCommonPrefixSolu_three(strs);
 };
 
 let longestCommonPrefixSolu_one = function(strs) {
@@ -47,6 +48,26 @@ let longestCommonPrefixSolu_two = function(strs) {
   return commonPre;
 }
 
+let longestCommonPrefixSolu_three = function(strs) {
+  let result = '';
+
+  if(strs == null || strs.length === 0) return result;
+  if(strs.length === 1) return strs[0];
+
+  strs.sort();
+
+  let firstStr = strs[0];
+  let lastStr = strs[strs.length-1];
+
+  for(let i=0; i<lastStr.length; i++) {
+    if(lastStr.length > i && lastStr[i] === firstStr[i]) {
+      result += lastStr[i];
+    } else {
+      return result;
+    }
+  }
+  return result;
+}
 
 // @lc code=end
 
