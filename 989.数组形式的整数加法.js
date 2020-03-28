@@ -45,6 +45,5 @@ let addToArrayFormSolu_one = function(A, K) {
   return resArr;
 }
 
-
 // @lc code=end
 
