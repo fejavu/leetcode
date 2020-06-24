@@ -17,10 +17,25 @@
  * @return {TreeNode}
  */
 var invertTree = function(root) {
-  if(root) {
-    [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
+  if(!root) {
+    return null;
   }
 
+  let temp = null;
+
+  function invertHelper(node) {
+    if(node && !node.visited) {
+      node.visited = true;
+      temp = node.left;
+      node.left = node.right;
+      node.right = temp;
+
+      invertHelper(node.left);
+      invertHelper(node.right);
+    }
+  }
+
+  invertHelper(root);
   return root;
 };
 
